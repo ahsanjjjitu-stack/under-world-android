@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "712645460055",
+    "project_id": "under-world-cb746",
+    "storage_bucket": "under-world-cb746.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712645460055:android:547438368ee88ce1526312",
+        "android_client_info": {
+          "package_name": "com.example.underworld"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZak6_dp_pbQS1NTjb7gYntAamPsynIZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

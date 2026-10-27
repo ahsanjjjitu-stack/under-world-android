@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tracker circle. setActivated(true) = filled orange (done), default = grey ring (waiting) -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_activated="true">
+        <shape android:shape="oval">
+            <solid android:color="@color/uw_accent" />
+            <stroke android:width="2dp" android:color="@color/uw_accent" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@android:color/transparent" />
+            <stroke android:width="2dp" android:color="#5B6478" />
+        </shape>
+    </item>
+</selector>

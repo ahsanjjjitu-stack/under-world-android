@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Under World</string>
+    <string name="checkout_title">Checkout</string>
+    <string name="step_address">Address</string>
+    <string name="step_payment">Payment</string>
+    <string name="step_review">Review</string>
+
+    <string name="addr_heading">Where to deliver?</string>
+    <string name="addr_sub">We bring your order to this address.</string>
+    <string name="label_full_name">Full name</string>
+    <string name="label_phone">Phone</string>
+    <string name="label_district">District</string>
+    <string name="label_area">Area / upazila</string>
+    <string name="label_address">Address</string>
+    <string name="hint_full_name">Rahim Ahmed</string>
+    <string name="hint_phone">01XXXXXXXXX</string>
+    <string name="hint_district">Kurigram</string>
+    <string name="hint_area">Nageshwari</string>
+    <string name="hint_address">House, road, landmark</string>
+    <string name="err_name">Enter your full name.</string>
+    <string name="err_phone">Enter a valid number like 01XXXXXXXXX.</string>
+    <string name="err_district">Enter your district.</string>
+    <string name="err_area">Enter your area or upazila.</string>
+    <string name="err_address">Enter house, road and a landmark.</string>
+    <string name="err_sender">Enter the number you sent money from.</string>
+    <string name="err_trx">TrxID is 8 to 12 letters and numbers.</string>
+    <string name="err_fix_fields">Please fix the highlighted fields</string>
+
+    <string name="pay_heading">How will you pay?</string>
+    <string name="pay_sub">Pick one. You can pay in cash when it arrives.</string>
+    <string name="pay_cod">Cash on delivery</string>
+    <string name="pay_cod_sub">Pay when your order arrives</string>
+    <string name="pay_bkash">bKash</string>
+    <string name="pay_nagad">Nagad</string>
+    <string name="pay_mfs_sub">Send money, then enter the TrxID</string>
+    <string name="pay_cod_note">You will pay %1$s in cash to the delivery person. We confirm the order first.</string>
+    <string name="mfs_steps"><![CDATA[1. Open the <b>%1$s</b> app and choose <b>Send Money</b>.<br>2. Send <b>%2$s</b> to the number below.<br>3. Type your sending number and the TrxID here.]]></string>
+    <string name="mfs_number_kind">Personal number</string>
+    <string name="mfs_copy">Copy</string>
+    <string name="mfs_copied">Number copied</string>
+    <string name="label_sender">Number you sent from</string>
+    <string name="label_trx">Transaction ID (TrxID)</string>
+    <string name="hint_trx">9X72ABC81Z</string>
+    <string name="mfs_note">Your order stays <b>pending</b> until we match this TrxID with our account. Please send the exact total.</string>
+
+    <string name="review_heading">Review your order</string>
+    <string name="review_sub">Check everything, then place your order.</string>
+    <string name="recap_deliver_to">Deliver to</string>
+    <string name="recap_pay_with">Pay with</string>
+    <string name="recap_edit">Edit</string>
+    <string name="recap_cod">Cash on delivery</string>
+    <string name="recap_mfs">%1$s · TrxID %2$s</string>
+
+    <string name="btn_continue">Continue</string>
+    <string name="btn_place_order">Place order · %1$s</string>
+    <string name="btn_placing">Placing order…</string>
+    <string name="err_order_failed">Could not place the order. Please try again.</string>
+    <string name="err_cart_empty">Your bag is empty.</string>
+
+    <string name="placed_title">Order placed</string>
+    <string name="placed_status">Pending confirmation</string>
+    <string name="placed_msg_cod"><![CDATA[Thank you. We will confirm your order and call <b>%1$s</b> before delivery. Keep <b>%2$s</b> ready in cash.]]></string>
+    <string name="placed_msg_mfs"><![CDATA[Thank you. We will match TrxID <b>%1$s</b> with our %2$s account, then confirm your order.]]></string>
+    <string name="btn_continue_shopping">Continue shopping</string>
+    <string name="item_line_name">%1$s × %2$d</string>
+    <string name="item_line_meta">%1$s · Size %2$s</string>
+</resources>

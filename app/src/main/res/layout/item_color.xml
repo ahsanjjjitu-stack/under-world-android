@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/colourRoot"
+    android:layout_width="48dp"
+    android:layout_height="48dp"
+    android:layout_marginEnd="12dp"
+    android:background="@drawable/bg_swatch_ring"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="5dp">
+
+    <View
+        android:id="@+id/viewSwatch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_swatch_fill" />
+</FrameLayout>

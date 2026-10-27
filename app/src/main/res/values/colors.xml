@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="uw_bg">#0D1017</color>
+    <color name="uw_ink">#0E1116</color>
+    <color name="uw_text">#F2EEE6</color>
+    <color name="uw_muted">#98A0B0</color>
+    <color name="uw_line">#2A3140</color>
+    <color name="uw_legal">#7C8494</color>
+
+
+    <!-- Login: product cards -->
+    <color name="uw_paper">#ECE6DB</color>
+    <color name="uw_peach">#F2DDD3</color>
+    <color name="uw_mint">#DCE8DF</color>
+    <color name="uw_navy">#1E2A52</color>
+    <color name="uw_moss">#3F6B4F</color>
+    <color name="uw_charcoal">#2A2D34</color>
+    <color name="uw_cream">#E9E4DA</color>
+    <color name="uw_accent">#FF6B3D</color>
+
+    <!-- Login: Google button -->
+    <color name="uw_white">#FFFFFF</color>
+    <color name="uw_google_text">#1F1F1F</color>
+    <color name="uw_gmark_bg">#EEF0F2</color>
+    <color name="uw_gmark_text">#3C4043</color>
+
+    <color name="uw_surface">#171C26</color>
+    <color name="uw_surface2">#1F2531</color>
+    <color name="uw_star_off">#5B6478</color>
+    <color name="uw_review_text">#D7D3CB</color>
+    <color name="uw_grab">#3A4254</color>
+    <color name="uw_scrim">#9E030508</color>
+
+    <color name="uw_error">#FF8A7A</color>
+    <color name="uw_bkash">#E2136E</color>
+    <color name="uw_nagad">#E8761C</color>
+    <color name="uw_amber">#F5B63D</color>
+    <color name="uw_dash">#3A4254</color>
+
+
+</resources>

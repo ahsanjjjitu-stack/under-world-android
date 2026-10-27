@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/checkoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+
+
+    <!-- Top bar -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingTop="22dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="14dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_gravity="start|center_vertical"
+            android:background="@drawable/bg_card_round"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Checkout"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </FrameLayout>
+
+
+
+    <!-- Progress: three bars with the step names under them -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="12dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/stepBar1"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@drawable/bg_step_bar" />
+
+            <TextView
+                android:id="@+id/stepLabel1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/step_address"
+                android:textColor="@color/step_label_text"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/stepBar2"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@drawable/bg_step_bar" />
+
+            <TextView
+                android:id="@+id/stepLabel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/step_payment"
+                android:textColor="@color/step_label_text"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/stepBar3"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@drawable/bg_step_bar" />
+
+            <TextView
+                android:id="@+id/stepLabel3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/step_review"
+                android:textColor="@color/step_label_text"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollCheckout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingTop="14dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="24dp">
+
+            <!-- ===== STEP 1: ADDRESS ===== -->
+            <LinearLayout
+                android:id="@+id/stepAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    style="@style/Widget.UnderWorld.StepTitle"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/addr_heading" />
+
+                <TextView
+                    style="@style/Widget.UnderWorld.StepSub"
+                    android:text="@string/addr_sub" />
+
+                <TextView
+                    style="@style/Widget.UnderWorld.FieldLabel"
+                    android:layout_marginTop="10dp"
+                    android:labelFor="@id/etName"
+                    android:text="@string/label_full_name" />
+
+                <EditText
+                    android:id="@+id/etName"
+                    style="@style/Widget.UnderWorld.Input"
+                    android:autofillHints="name"
+                    android:hint="@string/hint_full_name"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName|textCapWords" />
+
+                <TextView
+                    android:id="@+id/tvNameError"
+                    style="@style/Widget.UnderWorld.FieldError"
+                    android:text="@string/err_name" />
+
+                <TextView
+                    style="@style/Widget.UnderWorld.FieldLabel"
+                    android:labelFor="@id/etPhone"
+                    android:text="@string/label_phone" />
+
+                <EditText
+                    android:id="@+id/etPhone"
+                    style="@style/Widget.UnderWorld.Input"
+                    android:autofillHints="phone"
+                    android:hint="@string/hint_phone"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone"
+                    android:maxLength="14" />
+
+                <TextView
+                    android:id="@+id/tvPhoneError"
+                    style="@style/Widget.UnderWorld.FieldError"
+                    android:text="@string/err_phone" />
+
+                <!-- District and area side by side -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.UnderWorld.FieldLabel"
+                            android:labelFor="@id/actDistrict"
+                            android:text="@string/label_district" />
+
+                        <AutoCompleteTextView
+                            android:id="@+id/actDistrict"
+                            style="@style/Widget.UnderWorld.Input"
+                            android:completionThreshold="1"
+                            android:hint="@string/hint_district"
+                            android:imeOptions="actionNext"
+                            android:inputType="textCapWords" />
+
+                        <TextView
+                            android:id="@+id/tvDistrictError"
+                            style="@style/Widget.UnderWorld.FieldError"
+                            android:text="@string/err_district" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Widget.UnderWorld.FieldLabel"
+                            android:labelFor="@id/etArea"
+                            android:text="@string/label_area" />
+
+                        <EditText
+                            android:id="@+id/etArea"
+                            style="@style/Widget.UnderWorld.Input"
+                            android:hint="@string/hint_area"
+                            android:imeOptions="actionNext"
+                            android:inputType="textCapWords" />
+
+                        <TextView
+                            android:id="@+id/tvAreaError"
+                            style="@style/Widget.UnderWorld.FieldError"
+                            android:text="@string/err_area" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Widget.UnderWorld.FieldLabel"
+                    android:labelFor="@id/etAddress"
+                    android:text="@string/label_address" />
+
+                <EditText
+                    android:id="@+id/etAddress"
+                    style="@style/Widget.UnderWorld.Input"
+                    android:autofillHints="postalAddress"
+                    android:gravity="top"
+                    android:hint="@string/hint_address"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPostalAddress|textMultiLine|textCapSentences"
+                    android:layout_height="76dp"
+                    android:maxLines="3"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="12dp" />
+
+                <TextView
+                    android:id="@+id/tvAddressError"
+                    style="@style/Widget.UnderWorld.FieldError"
+                    android:text="@string/err_address" />
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+            <!-- ===== STEP 2: PAYMENT ===== -->
+            <LinearLayout
+                android:id="@+id/stepPayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+
+                <TextView
+                    style="@style/Widget.UnderWorld.StepTitle"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/pay_heading" />
+
+                <TextView
+                    style="@style/Widget.UnderWorld.StepSub"
+                    android:layout_marginBottom="18dp"
+                    android:text="@string/pay_sub" />
+
+                <LinearLayout
+                    android:id="@+id/optCod"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bg_pay_option"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:minHeight="64dp"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:background="@drawable/bg_badge"
+                        android:backgroundTint="@color/uw_moss"
+                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:text="৳"
+                        android:textColor="@color/uw_white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pay_cod"
+                            android:textColor="@color/uw_text"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/pay_cod_sub"
+                            android:textColor="@color/uw_muted"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:duplicateParentState="true"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_radio" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/optBkash"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bg_pay_option"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:minHeight="64dp"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:background="@drawable/bg_badge"
+                        android:backgroundTint="@color/uw_bkash"                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:text="b"
+                        android:textColor="@color/uw_white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pay_bkash"
+                            android:textColor="@color/uw_text"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/pay_mfs_sub"
+                            android:textColor="@color/uw_muted"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:duplicateParentState="true"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_radio" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/optNagad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bg_pay_option"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:minHeight="64dp"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:background="@drawable/bg_badge"
+                        android:text="N"
+                        android:textColor="@color/uw_white"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pay_nagad"
+                            android:textColor="@color/uw_text"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/pay_mfs_sub"
+                            android:textColor="@color/uw_muted"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:duplicateParentState="true"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_radio" />
+                </LinearLayout>
+
+                <!-- Cash on delivery note -->
+                <TextView
+                    android:id="@+id/panelCod"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_pay_option"
+                    android:padding="16dp"
+                    android:text="You will pay ৳1,470 in cash to the delivery person. We confirm the order first."
+                    android:textColor="@color/uw_review_text"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    />
+
+                <!-- bKash / Nagad: send money, then enter number and TrxID -->
+                <LinearLayout
+                    android:id="@+id/panelMfs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_product_card"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:visibility="gone"
+                    >
+
+                    <TextView
+                        android:id="@+id/tvMfsSteps"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/uw_review_text"
+                        android:textSize="15sp"
+                        android:text="1. Open the bKash app and choose Send Money.\n2. Send ৳1,470 to the number below.\n3. Type your sending number and the TrxID here."
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        style="@style/Widget.UnderWorld.Input"
+                        android:background="@drawable/bg_input_inner"
+                        android:gravity="center_vertical"
+                        android:layerType="software"
+                        android:orientation="horizontal"
+                        android:padding="12dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvMfsNumber"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0.04"
+                                android:textColor="@color/uw_text"
+                                android:textIsSelectable="true"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/mfs_number_kind"
+                                android:textColor="@color/uw_muted"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/btnCopy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="44dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:text="@string/mfs_copy"
+                            android:textColor="@color/uw_text"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/Widget.UnderWorld.FieldLabel"
+                        android:labelFor="@id/etSender"
+                        android:text="@string/label_sender" />
+
+                    <EditText
+                        android:id="@+id/etSender"
+                        style="@style/Widget.UnderWorld.Input"
+                        android:background="@drawable/bg_input_inner"
+                        android:hint="@string/hint_phone"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLength="14" />
+
+                    <TextView
+                        android:id="@+id/tvSenderError"
+                        style="@style/Widget.UnderWorld.FieldError"
+                        android:text="@string/err_sender" />
+
+                    <TextView
+                        style="@style/Widget.UnderWorld.FieldLabel"
+                        android:labelFor="@id/etTrx"
+                        android:text="@string/label_trx" />
+
+                    <EditText
+                        android:id="@+id/etTrx"
+                        style="@style/Widget.UnderWorld.Input"
+                        android:background="@drawable/bg_input_inner"
+                        android:hint="@string/hint_trx"
+                        android:imeOptions="actionDone"
+                        android:inputType="textCapCharacters|textNoSuggestions"
+                        android:maxLength="12" />
+
+                    <TextView
+                        android:id="@+id/tvTrxError"
+                        style="@style/Widget.UnderWorld.FieldError"
+                        android:text="@string/err_trx" />
+
+                    <TextView
+                        android:id="@+id/tvMfsNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:lineSpacingMultiplier="1.3"
+                        android:text="@string/mfs_note"
+                        android:textColor="@color/uw_muted"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+
+
+            <!-- ===== STEP 3: REVIEW ===== -->
+            <LinearLayout
+                android:id="@+id/stepReview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+
+                <TextView
+                    style="@style/Widget.UnderWorld.StepTitle"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/review_heading" />
+
+                <TextView
+                    style="@style/Widget.UnderWorld.StepSub"
+                    android:layout_marginBottom="18dp"
+                    android:text="@string/review_sub" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_pay_option"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/recap_deliver_to"
+                            android:textColor="@color/uw_muted"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvRecapAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:lineSpacingMultiplier="1.3"
+                            android:textColor="@color/uw_review_text"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btnEditAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="4dp"
+                        android:text="@string/recap_edit"
+                        android:textColor="@color/uw_accent"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_pay_option"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/recap_pay_with"
+                            android:textColor="@color/uw_muted"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvRecapPay"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:textColor="@color/uw_text"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btnEditPay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="4dp"
+                        android:text="@string/recap_edit"
+                        android:textColor="@color/uw_accent"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/layoutSummary"
+                    layout="@layout/layout_order_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp" />
+            </LinearLayout>
+        </FrameLayout>
+    </ScrollView>
+
+    <!-- Bottom button: "Continue" on steps 1 and 2, "Place order · ৳1,470" on step 3 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_details_footer"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/btnContinue"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_cta_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/btn_continue"
+            android:textColor="@color/uw_ink"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

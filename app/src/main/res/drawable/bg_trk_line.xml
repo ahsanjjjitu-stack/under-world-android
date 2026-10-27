@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Line between the two tracker circles. setActivated(true) = orange (confirmed), default = grey -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/uw_line" />
+        </shape>
+    </item>
+</selector>
